@@ -11,7 +11,7 @@ use std::iter::FromIterator;
 use std::collections::HashMap;
 use std::result::Result;
 use std::error::Error;
-use std::time::Instant;
+use super::time::Instant;
 use regex::Regex;
 extern crate  url;
 
@@ -23,6 +23,7 @@ use url::percent_encoding::{
     DEFAULT_ENCODE_SET,
     USERINFO_ENCODE_SET,
     };
+
 
 #[cfg(feature = "serde_support")]
 use serde::{Serialize,Deserialize};
