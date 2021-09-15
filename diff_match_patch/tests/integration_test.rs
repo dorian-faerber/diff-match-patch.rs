@@ -1,6 +1,7 @@
 use diff_match_patch;
 use std::collections::HashMap;
 use core::char;
+mod serde_support_test;
 
 pub fn diff_rebuildtexts( diffs: Vec<diff_match_patch::Diff>) -> Vec<String> {
     let mut text1: String = "".to_string();

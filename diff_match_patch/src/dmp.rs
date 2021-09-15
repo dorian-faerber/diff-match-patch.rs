@@ -4,6 +4,7 @@ Computes the difference between two texts to create a patch.
 Applies the patch onto another text, allowing for errors.
 */
 
+
 use std::fmt;
 use core::char;
 use std::iter::FromIterator;
@@ -22,6 +23,9 @@ use url::percent_encoding::{
     DEFAULT_ENCODE_SET,
     USERINFO_ENCODE_SET,
     };
+
+#[cfg(feature = "serde_support")]
+use serde::{Serialize,Deserialize};
 
 pub enum LengthUnit {
     #[allow(dead_code)]
@@ -56,11 +60,14 @@ pub struct Dmp {
     pub patch_delete_threshold: f32
 }
 
+#[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
 pub struct Diff {
     // diff object
     pub operation: i32,
     pub text: String,
 }
+
+#[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
 pub struct Patch {
     //patch object
     pub diffs: Vec<Diff>,
