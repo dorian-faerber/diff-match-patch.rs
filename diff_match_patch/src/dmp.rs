@@ -69,6 +69,7 @@ pub struct Diff {
 }
 
 #[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
+#[cfg_attr(feature = "serde_support", derive(Clone))]
 pub struct Patch {
     //patch object
     pub diffs: Vec<Diff>,
